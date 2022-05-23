@@ -63,6 +63,12 @@ public class App {
             pessoas.inserirEm(1, new Pessoa(5, "José Gilson Vitor"));
 
             System.out.println(pessoas);
+
+            System.out.println("Lista de pessoas:");
+
+            for (int i = 0; i < pessoas.tamanho(); i++) {
+                System.out.println(pessoas.recuperar(i).getNome());
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

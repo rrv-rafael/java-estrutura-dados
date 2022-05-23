@@ -49,7 +49,15 @@ public class Vetor<T> {
 
     @SuppressWarnings("unchecked")
     public T recuperar(int posicao) {
+        if (posicao >= tamanho()) {
+            throw new IllegalArgumentException(String.format("A posição [%d] é inválida.", posicao));
+        }
+        
         return (T)elementos[posicao];
+    }
+
+    public int tamanho() {
+        return elementos.length;
     }
 
     @Override
