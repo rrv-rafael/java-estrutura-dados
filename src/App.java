@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import br.com.rrvrafael.modelos.Pessoa;
+import br.com.rrvrafael.vetores.Vetor;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -10,18 +11,20 @@ public class App {
 
         System.out.println("*****Menu*****");
         System.out.println("1 - Gerenciamento de memória.");
+        System.out.println("2 - Vetores.");
         System.out.println("Conforme as opções cima, informe a desejada:");
         opcao = scan.nextInt();
 
         switch (opcao) {
             case 1 -> gerenciamentoMemoria();
+            case 2 -> declararVetor();
             default -> System.out.println("Opção inválida!");
         }
 
         scan.close();
     }
 
-    public static void gerenciamentoMemoria() {
+    private static void gerenciamentoMemoria() {
         int valor = 3;
         System.out.println("valor: " + valor);
 
@@ -35,6 +38,7 @@ public class App {
 
         Pessoa p1 = new Pessoa(1, "Rafael Rodrigues");
 
+        // Pessoa p2 = new Pessoa(1, "Rafael Rodrigues");
         Pessoa p2 = p1;
 
         System.out.println(p1);
@@ -44,5 +48,25 @@ public class App {
 
         System.out.println(p1);
         System.out.println(p2);
+
+        System.out.println(p1.equals(p2));
+    }
+
+    private static void declararVetor() {
+        Vetor<Pessoa> pessoas = new Vetor<>();
+
+        try {
+            pessoas.inserir(new Pessoa(1, "Rafael Rodrigues Vitor"));
+            pessoas.inserir(new Pessoa(2, "Renan Craldino Vitor"));
+            pessoas.inserir(new Pessoa(3, "José Gilson Vitor Junior"));
+            pessoas.inserir(new Pessoa(4, "Marlene Aparecida Vitor"));
+            pessoas.inserirEm(1, new Pessoa(5, "José Gilson Vitor"));
+
+            System.out.println(pessoas);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
     }
 }
