@@ -52,12 +52,34 @@ public class Vetor<T> {
         if (posicao >= tamanho()) {
             throw new IllegalArgumentException(String.format("A posição [%d] é inválida.", posicao));
         }
-        
+
         return (T)elementos[posicao];
     }
 
     public int tamanho() {
         return elementos.length;
+    }
+
+    public boolean contem(T elemento) {
+        for (Object element : elementos) {
+            if (element != null && element.equals(elemento)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int indice(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            T element = recuperar(i);
+            
+            if (element != null && element.equals(elemento)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override

@@ -69,6 +69,14 @@ public class App {
             for (int i = 0; i < pessoas.tamanho(); i++) {
                 System.out.println(pessoas.recuperar(i).getNome());
             }
+
+            Pessoa pessoa = pessoas.recuperar(1);
+            Pessoa pessoa2 = new Pessoa(10, "Não existe");
+
+            System.out.println(pessoas.contem(pessoa));
+            System.out.println(pessoas.contem(pessoa2));
+            System.out.println(pessoas.indice(pessoa));
+            System.out.println(pessoas.indice(pessoa2));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
