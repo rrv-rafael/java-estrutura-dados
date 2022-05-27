@@ -42,6 +42,7 @@ public class Vetor<T> {
 
             System.arraycopy(arrayInicio, 0, elementos, 0, arrayInicio.length);
             System.arraycopy(arrayFinal, 0, elementos, arrayInicio.length, arrayFinal.length);
+            posicao++;
         } else {
             elementos[posicao] = elemento;
         }
@@ -80,6 +81,21 @@ public class Vetor<T> {
         }
 
         return -1;
+    }
+
+    public void remover(int posicao) {
+        if (posicao >= tamanho()) {
+            throw new IllegalArgumentException(String.format("A posição [%d] é inválida.", posicao));
+        }
+
+        Object[] arrayFinal = Arrays.copyOfRange(elementos, posicao + 1, tamanho());
+        Object[] arrayInicio = Arrays.copyOfRange(elementos, 0, posicao);
+
+        elementos = new Object[tamanho() - 1];
+        posicao--;
+
+        System.arraycopy(arrayInicio, 0, elementos, 0, arrayInicio.length);
+        System.arraycopy(arrayFinal, 0, elementos, arrayInicio.length, arrayFinal.length);
     }
 
     @Override
