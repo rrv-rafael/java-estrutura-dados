@@ -70,17 +70,25 @@ public class App {
                 System.out.println(pessoas.recuperar(i).getNome());
             }
 
-            // Pessoa pessoa = pessoas.recuperar(1);
-            // Pessoa pessoa2 = new Pessoa(10, "Não existe");
+            Pessoa pessoa = pessoas.recuperar(1);
+            Pessoa pessoa2 = new Pessoa(10, "Não existe");
 
-            // System.out.println(pessoas.contem(pessoa));
-            // System.out.println(pessoas.contem(pessoa2));
-            // System.out.println(pessoas.indice(pessoa));
-            // System.out.println(pessoas.indice(pessoa2));
+            System.out.println(pessoas.contem(pessoa));
+            System.out.println(pessoas.contem(pessoa2));
+            System.out.println(pessoas.indice(pessoa));
+            System.out.println(pessoas.indice(pessoa2));
 
             pessoas.remover(0);
 
-            System.out.println("\nVetor após remoção:");
+            System.out.println("\nVetor após remoção com método recebendo posição:");
+
+            for (int i = 0; i < pessoas.tamanho(); i++) {
+                System.out.println(pessoas.recuperar(i).getNome());
+            }
+
+            pessoas.remover(pessoa);
+
+            System.out.println("\nVetor após remoção com método recebendo pessoa:");
 
             for (int i = 0; i < pessoas.tamanho(); i++) {
                 System.out.println(pessoas.recuperar(i).getNome());
