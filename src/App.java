@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import br.com.rrvrafael.listasligadas.ListaLigada;
 import br.com.rrvrafael.modelos.Pessoa;
 import br.com.rrvrafael.vetores.Vetor;
 
@@ -12,16 +13,27 @@ public class App {
         System.out.println("*****Menu*****");
         System.out.println("1 - Gerenciamento de memória.");
         System.out.println("2 - Vetores.");
+        System.out.println("3 - Lista ligada.");
         System.out.println("Conforme as opções cima, informe a desejada:");
         opcao = scan.nextInt();
 
         switch (opcao) {
             case 1 -> gerenciamentoMemoria();
             case 2 -> declararVetor();
+            case 3 -> criarListaLigada();
             default -> System.out.println("Opção inválida!");
         }
 
         scan.close();
+    }
+
+    private static void criarListaLigada() {
+        ListaLigada<Pessoa> listaPessoas = new ListaLigada<>();
+
+        listaPessoas.inserir(new Pessoa(1, "Maysa Miranda Salson"));
+        listaPessoas.inserir(new Pessoa(2, "Maysa Rodrigues Miranda Salson"));
+
+        System.out.println(listaPessoas);
     }
 
     private static void gerenciamentoMemoria() {
