@@ -49,6 +49,16 @@ public class App {
         listaPessoas.remover(pessoa);
 
         System.out.println(listaPessoas);
+
+        listaPessoas.remover(2);
+
+        System.out.println(listaPessoas);
+
+        System.out.println("\nLista de pessoas:");
+
+        for (int i = 0; i < listaPessoas.tamanho(); i++) {
+            System.out.println(listaPessoas.recuperar(i).toString());
+        }
     }
 
     private static void gerenciamentoMemoria() {
