@@ -103,7 +103,6 @@ public class ListaLigada<T> {
         if (posicao >= tamanho()) {
             throw new IllegalArgumentException(String.format("A posição [%d] é inválida.", posicao));
         }
-
         
         if (posicao == 0) {
             No<T> proximoNo = primeiroNo.getProximo();
@@ -131,6 +130,8 @@ public class ListaLigada<T> {
         if (indice == -1) {
             throw new IllegalArgumentException("Elemento inválido - " + elemento.toString());
         }
+
+        remover(indice);
     }
 
     private No<T> recuperarNo(int posicao) {

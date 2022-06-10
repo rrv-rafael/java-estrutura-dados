@@ -39,12 +39,16 @@ public class App {
 
         System.out.println(listaPessoas);
 
-        Pessoa pessoa = listaPessoas.recuperar(3);
+        Pessoa pessoa = listaPessoas.recuperar(1);
         Pessoa pessoaForaLista = new Pessoa(100, "Maria Oliveira");
         System.out.println(listaPessoas.contem(pessoa));
         System.out.println(listaPessoas.contem(pessoaForaLista));
         System.out.println(listaPessoas.indice(pessoa));
-        System.out.println(listaPessoas.indice(pessoaForaLista));        
+        System.out.println(listaPessoas.indice(pessoaForaLista));
+
+        listaPessoas.remover(pessoa);
+
+        System.out.println(listaPessoas);
     }
 
     private static void gerenciamentoMemoria() {
