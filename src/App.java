@@ -30,10 +30,21 @@ public class App {
     private static void criarListaLigada() {
         ListaLigada<Pessoa> listaPessoas = new ListaLigada<>();
 
-        listaPessoas.inserir(new Pessoa(1, "Maysa Miranda Salson"));
-        listaPessoas.inserir(new Pessoa(2, "Maysa Rodrigues Miranda Salson"));
+        listaPessoas.inserir(new Pessoa(1, "Rafael Rodrigues Vitor"));
+        listaPessoas.inserir(new Pessoa(2, "Renan Craldino Vitor"));
+        listaPessoas.inserir(new Pessoa(3, "José Gilson Vitor Junior"));
+        listaPessoas.inserirEm(1, new Pessoa(4, "Marlene Aparecida Vitor"));
+        listaPessoas.inserirPrimeiro(new Pessoa(5, "José Gilson Vitor"));
+        listaPessoas.inserirUltimo(new Pessoa(6, "João Izidório de Oliveira"));
 
         System.out.println(listaPessoas);
+
+        Pessoa pessoa = listaPessoas.recuperar(3);
+        Pessoa pessoaForaLista = new Pessoa(100, "Maria Oliveira");
+        System.out.println(listaPessoas.contem(pessoa));
+        System.out.println(listaPessoas.contem(pessoaForaLista));
+        System.out.println(listaPessoas.indice(pessoa));
+        System.out.println(listaPessoas.indice(pessoaForaLista));        
     }
 
     private static void gerenciamentoMemoria() {
