@@ -4,5 +4,5 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "editor.fontFamily": "Cascadia Mono, 'Courier New', monospace"
+    "editor.fontFamily": "Consolas, 'Courier New', monospace"
 }

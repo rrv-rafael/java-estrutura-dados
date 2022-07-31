@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import br.com.rrvrafael.listasligadas.ListaDuplamenteLigada;
 import br.com.rrvrafael.listasligadas.ListaLigada;
 import br.com.rrvrafael.modelos.Pessoa;
 import br.com.rrvrafael.vetores.Vetor;
@@ -14,6 +15,7 @@ public class App {
         System.out.println("1 - Gerenciamento de memória.");
         System.out.println("2 - Vetores.");
         System.out.println("3 - Lista ligada.");
+        System.out.println("4 - Lista duplamente ligada.");
         System.out.println("Conforme as opções cima, informe a desejada:");
         opcao = scan.nextInt();
 
@@ -21,10 +23,45 @@ public class App {
             case 1 -> gerenciamentoMemoria();
             case 2 -> declararVetor();
             case 3 -> criarListaLigada();
+            case 4 -> criarListaDuplamenteLigada();
             default -> System.out.println("Opção inválida!");
         }
 
         scan.close();
+    }
+
+    private static void criarListaDuplamenteLigada() {
+        ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<>();
+
+        listaPessoas.inserir(new Pessoa(1, "Rafael Rodrigues Vitor"));
+        listaPessoas.inserir(new Pessoa(2, "Renan Craldino Vitor"));
+        listaPessoas.inserir(new Pessoa(3, "José Gilson Vitor Junior"));
+        listaPessoas.inserirEm(1, new Pessoa(4, "Marlene Aparecida Vitor"));
+        listaPessoas.inserirPrimeiro(new Pessoa(5, "José Gilson Vitor"));
+        listaPessoas.inserirUltimo(new Pessoa(6, "João Izidório de Oliveira"));
+
+        System.out.println(listaPessoas);
+
+        Pessoa pessoa = listaPessoas.recuperar(1);
+        Pessoa pessoaForaLista = new Pessoa(100, "Maria Oliveira");
+        System.out.println(listaPessoas.contem(pessoa));
+        System.out.println(listaPessoas.contem(pessoaForaLista));
+        System.out.println(listaPessoas.indice(pessoa));
+        System.out.println(listaPessoas.indice(pessoaForaLista));
+
+        listaPessoas.remover(pessoa);
+
+        System.out.println(listaPessoas);
+
+        listaPessoas.remover(0);
+
+        System.out.println(listaPessoas);
+
+        System.out.println("\nLista de pessoas:");
+
+        for (int i = 0; i < listaPessoas.tamanho(); i++) {
+            System.out.println(listaPessoas.recuperar(i).toString());
+        }
     }
 
     private static void criarListaLigada() {
@@ -50,7 +87,7 @@ public class App {
 
         System.out.println(listaPessoas);
 
-        listaPessoas.remover(2);
+        listaPessoas.remover(3);
 
         System.out.println(listaPessoas);
 
