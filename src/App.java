@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
+import br.com.rrvrafael.filas.Fila;
 import br.com.rrvrafael.listasligadas.ListaDuplamenteLigada;
 import br.com.rrvrafael.listasligadas.ListaLigada;
 import br.com.rrvrafael.modelos.Pessoa;
+import br.com.rrvrafael.pilhas.Pilha;
 import br.com.rrvrafael.vetores.Vetor;
 
 public class App {
@@ -16,6 +18,8 @@ public class App {
         System.out.println("2 - Vetores.");
         System.out.println("3 - Lista ligada.");
         System.out.println("4 - Lista duplamente ligada.");
+        System.out.println("5 - Pilha");
+        System.out.println("6 - Fila");
         System.out.println("Conforme as opções cima, informe a desejada:");
         opcao = scan.nextInt();
 
@@ -24,10 +28,43 @@ public class App {
             case 2 -> declararVetor();
             case 3 -> criarListaLigada();
             case 4 -> criarListaDuplamenteLigada();
+            case 5 -> criarPilha();
+            case 6 -> criarFila();
             default -> System.out.println("Opção inválida!");
         }
 
         scan.close();
+    }
+
+    private static void criarFila() {
+        Fila<Pessoa> filaPessoas = new Fila<>();
+
+        System.out.println(filaPessoas.estaVazia());
+
+        filaPessoas.enfileirar(new Pessoa(1, "Treina Web 1"));
+        filaPessoas.enfileirar(new Pessoa(2, "Treina Web 2"));
+        filaPessoas.enfileirar(new Pessoa(3, "Treina Web 3"));
+
+        System.out.println(filaPessoas.toString());
+
+        Pessoa pessoa = filaPessoas.desenfileirar();
+
+        System.out.println(pessoa.toString());
+
+        System.out.println(filaPessoas.toString());
+    }
+
+    private static void criarPilha() {
+        Pilha<Pessoa> pilhaPessoas = new Pilha<>();
+        System.out.println(pilhaPessoas.estaVazia());
+
+        pilhaPessoas.empilhar(new Pessoa(1, "Treina Web 1"));
+        pilhaPessoas.empilhar(new Pessoa(2, "Treina Web 2"));
+        pilhaPessoas.empilhar(new Pessoa(3, "Treina Web 3"));
+
+        Pessoa pessoa = pilhaPessoas.desempilhar();
+
+        System.out.println(pessoa.toString());
     }
 
     private static void criarListaDuplamenteLigada() {
