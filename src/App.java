@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import br.com.rrvrafael.conjuntos.Conjunto;
 import br.com.rrvrafael.filas.Fila;
 import br.com.rrvrafael.listasligadas.ListaDuplamenteLigada;
 import br.com.rrvrafael.listasligadas.ListaLigada;
@@ -20,6 +21,7 @@ public class App {
         System.out.println("4 - Lista duplamente ligada.");
         System.out.println("5 - Pilha");
         System.out.println("6 - Fila");
+        System.out.println("7 - Conjunto");
         System.out.println("Conforme as opções cima, informe a desejada:");
         opcao = scan.nextInt();
 
@@ -30,10 +32,22 @@ public class App {
             case 4 -> criarListaDuplamenteLigada();
             case 5 -> criarPilha();
             case 6 -> criarFila();
+            case 7 -> criarConjunto();
             default -> System.out.println("Opção inválida!");
         }
 
         scan.close();
+    }
+
+    private static void criarConjunto() {
+        Conjunto<Pessoa> conjuntoPessoas = new Conjunto<>();
+        System.out.println(conjuntoPessoas.estaVazio());
+        System.out.println(conjuntoPessoas.inserir(new Pessoa(1, "Treina Web")));
+        System.out.println(conjuntoPessoas.toString());
+        System.out.println(conjuntoPessoas.inserir(new Pessoa(2, "Treina Web")));
+        System.out.println(conjuntoPessoas.toString());
+        System.out.println(conjuntoPessoas.inserirEm(1, new Pessoa(2, "Treina Web")));
+        System.out.println(conjuntoPessoas.toString());
     }
 
     private static void criarFila() {
