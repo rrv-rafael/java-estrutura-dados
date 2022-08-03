@@ -1,40 +1,20 @@
 package br.com.rrvrafael.conjuntos;
 
-import br.com.rrvrafael.listasligadas.ListaLigada;
+import br.com.rrvrafael.espalhamento.TabelaEspalhamento;
 
 public class Conjunto<T> {
-    private ListaLigada<T> elementos;
+    private TabelaEspalhamento<T> elementos;
 
     public Conjunto() {
-        this.elementos = new ListaLigada<>();
+        this.elementos = new TabelaEspalhamento<>();
     }
 
-    public boolean inserir(T elemento) {
-        if (elemento != null && !contemOtimizado(elemento)) {
-            elementos.inserir(elemento);
-
-            return true;
-        }
-        
-        return false;
-    }
-
-    public boolean inserirEm(int posicao, T elemento) {
-        if (elemento != null && !contemOtimizado(elemento)) {
-            elementos.inserirEm(posicao, elemento);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public T recuperar(int posicao) {
-        return elementos.recuperar(posicao);
+    public boolean inserir(T elemento) {        
+        return elementos.inserir(elemento);
     }
 
     public boolean estaVazio() {
-        return elementos.estaVazia();
+        return elementos.tamanho() == 0;
     }
 
     public int tamanho() {
@@ -45,28 +25,20 @@ public class Conjunto<T> {
         return elementos.contem(elemento);
     }
 
-    public int indice(T elemento) {
-        return elementos.indice(elemento);
-    }
-
-    public void remover(int posicao) {
-        elementos.remover(posicao);
-    }
-
     public void remover(T elemento) {
         elementos.remover(elemento);
     }
 
-    private boolean contemOtimizado(T elemento) {
-        for (int i = 0; i < elementos.tamanho(); i++) {
-            T e = elementos.recuperar(i);
-            if (e.hashCode() == elemento.hashCode()) {
-                return true;
-            }
-        }
+    // private boolean contemOtimizado(T elemento) {
+    //     for (int i = 0; i < elementos.tamanho(); i++) {
+    //         T e = elementos.recuperar(i);
+    //         if (e.hashCode() == elemento.hashCode()) {
+    //             return true;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     @Override
     public String toString() {
